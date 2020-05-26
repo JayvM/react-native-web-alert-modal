@@ -16,7 +16,7 @@ export default class CustomModal extends React.Component {
     let modal = (
       <View style={Platform.OS !== 'web' ? styles.modalMobile : styles.modal}>
         <View style={styles.body}>
-          <Text>Message</Text>
+          <Text>{this.props.message}</Text>
           <TextInput style={styles.textInput} onChangeText={(value) => this.setState({ inputValue: value })}></TextInput>
         </View>
         <Button title='OK' onPress={() => this.props.onClose(this.state.inputValue)}></Button>
@@ -66,8 +66,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   textInput: {
+    width: '100%',
     borderWidth: 1,
-    borderColor: '#000000',
-    width: '100%'
+    borderColor: '#000000'
   }
 });
